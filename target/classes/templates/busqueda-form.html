@@ -88,7 +88,7 @@
 
     <div class="container">
         <h1>Listar vehiculos por modelo</h1>
-        <form th:action="@{/buscar-modelo}" th:object="${objBuscar}" method="post">
+        <form th:action="@{/buscar-modelo}" th:object="${objBuscar}" method="post" style="padding-bottom: 20px;">
             <input class="field" type="text" th:field="*{modelo}" placeholder="Ingrese el modelo">
             <input class="btn submit" type="submit" value="Buscar">
         </form>
@@ -112,10 +112,6 @@
                 </tbody>
             </table>
         </div>
-    
-        <!-- <tr th:if="${#arrays.isEmpty(tablaModelos)}">
-                <td colspan="3" th:text="${mensaje}"></td>
-            </tr> -->
 
     </div>
 </body>
