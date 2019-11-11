@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Menu de busquedas!</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #E64525;
+            font-family: 'Raleway', sans-serif;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .container {
+            margin: 20px auto;
+            padding: 15px;
+            width: 550px;
+            height: auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        }
+
+        h1 {
+            width: 70%;
+            color: #777;
+            font-size: 32px;
+            margin: 28px auto;
+            margin-bottom: 20px;
+        }
+
+        table {
+            font-style: normal;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        thead {
+            font-size: x-large;
+            color: #4F5258;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        input {
+            font-family: 'Raleway', sans-serif;
+            padding: 12px 0;
+            margin-bottom: 10px;
+            border-radius: 3px;
+            border: 2px solid transparent;
+            text-align: center;
+            width: 60%;
+            font-size: 16px;
+            transition: border .2s, background-color .2s;
+        }
+
+        div .btn {
+            background-color: #E64525;
+            color: #fff;
+            line-height: 25px;
+            cursor: pointer;
+        }
+
+        div .btn:hover,
+        div .btn:active {
+            background-color: #992E18;
+            border: 2px solid #992E18;
+        }
+
+        form .field {
+            background-color: #ECF0F1;
+        }
+
+        form .field:focus {
+            border: 2px solid #E64525;
+        }
+    </style>
+
+<body>
+
+    <div class="container">
+        <h1>Listar vehiculos por modelo</h1>
+        <form th:action="@{/buscar-modelo}" th:object="${objBuscar}" method="post">
+            <input class="field" type="text" th:field="*{modelo}" placeholder="Ingrese el modelo">
+            <input class="btn submit" type="submit" value="Buscar">
+        </form>
+
+        <div th:if="${mensaje == 'ok'}">
+            <h1>Lista del modelo buscado</h1>
+            <table style="padding-bottom: 30px;">
+                <thead>
+                    <tr>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="registro : ${tablaModelos}">
+                        <th th:text="${registro.marca}"></th>
+                        <th th:text="${registro.modelo}"></th>
+                        <th th:text="${registro.precio}"></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+        <!-- <tr th:if="${#arrays.isEmpty(tablaModelos)}">
+                <td colspan="3" th:text="${mensaje}"></td>
+            </tr> -->
+
+    </div>
+</body>
+
+</html>
