@@ -18,35 +18,20 @@ public class HomeController {
     @Autowired
     ResgistroService miServicio;
 
-    // @GetMapping({ "/", "/lista-view" })
-    // public String mostrarLista(@ModelAttribute ArrayList<Vehiculo> listaModelos, Model modelo) {
-    //     modelo.addAttribute("listaVehiculos", miServicio.getListaVehiculos());
-    //     modelo.addAttribute("objBuscar", new Vehiculo());
-    //     return "lista-view";
-    // }
-
-    /**
-     * 
-     * @param modelo
-     * @param model
-     * @return
-     */
     @GetMapping({ "/", "/lista-view"})
-    public String procesar(@RequestParam(value = "txtBuscarModelo", required = false) String modelo, Model model) {
+    public String procesar(@RequestParam(value = "txtBuscarModelo", required = false, defaultValue = "") String modelo, Model model) {
 
-        if (modelo != null) {
-            ArrayList<Vehiculo> resultado = miServicio.getListaModelo(modelo);
-            model.addAttribute("listaVehiculos", resultado);
-        }
-        else{
+        // if (modelo != null) {
+        //     ArrayList<Vehiculo> resultado = miServicio.getListaModelo(modelo);
+        //     model.addAttribute("listaVehiculos", resultado);
+        // }
+        // else{
             model.addAttribute("listaVehiculos", miServicio.getListaVehiculos());
-        }
+        // }
         model.addAttribute("objBuscar", new Vehiculo());
         return "lista-view";
     }
 
-
-    
 
     @GetMapping("/agregar-form")
     public String mostrarFormulario(Model modelo) {
