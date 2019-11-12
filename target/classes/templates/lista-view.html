@@ -50,6 +50,7 @@
             border-bottom: 1px solid #ddd;
         }
 
+        input,
         button {
             font-family: 'Raleway', sans-serif;
             padding: 12px 0;
@@ -74,6 +75,21 @@
             background-color: #992E18;
             border: 2px solid #992E18;
         }
+
+        div .btn {
+            background-color: #E64525;
+            color: #fff;
+            line-height: 25px;
+            cursor: pointer;
+        }
+
+        form .field {
+            background-color: #ECF0F1;
+        }
+
+        form .field:focus {
+            border: 2px solid #E64525;
+        }
     </style>
 </head>
 
@@ -81,6 +97,15 @@
 
     <div class="container">
         <h1>Lista de vehiculos disponibles</h1>
+<!--**********************************************************************************************-->
+        <div>
+            <form th:action="@{/lista-view}" method="get" style="padding-bottom: 20px;">
+                <input class="field" type="text" name="txtBuscarModelo" placeholder="Ingrese el modelo">
+                <input class="btn submit" type="submit" value="Buscar">
+                <input value="Reload Page" onclick="history.go(0)" class="reset" type="button">
+            </form>
+        </div>
+<!--**********************************************************************************************-->
         <table>
             <thead>
                 <tr>
