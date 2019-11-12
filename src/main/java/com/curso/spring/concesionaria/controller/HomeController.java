@@ -26,7 +26,7 @@ public class HomeController {
         //     model.addAttribute("listaVehiculos", resultado);
         // }
         // else{
-            model.addAttribute("listaVehiculos", miServicio.getListaVehiculos());
+        model.addAttribute("listaVehiculos", miServicio.getListaVehiculos(modelo));
         // }
         model.addAttribute("objBuscar", new Vehiculo());
         return "lista-view";
@@ -45,26 +45,26 @@ public class HomeController {
         return "redirect:/agregar-form";
     }
 
-    @GetMapping("/busqueda-form")
-    public String resultadoBusqueda(Model modelo) {
-        modelo.addAttribute("objBuscar", new Vehiculo());
-        modelo.addAttribute("tablaModelos", new ArrayList<Vehiculo>());
-        return "busqueda-form";
-    }
+    // @GetMapping("/busqueda-form")
+    // public String resultadoBusqueda(Model modelo) {
+    //     modelo.addAttribute("objBuscar", new Vehiculo());
+    //     modelo.addAttribute("tablaModelos", new ArrayList<Vehiculo>());
+    //     return "busqueda-form";
+    // }
 
-    @PostMapping("/buscar-modelo")
-    public String getModelo(@ModelAttribute Vehiculo objBuscar, Model modelo) {
+    // @PostMapping("/buscar-modelo")
+    // public String getModelo(@ModelAttribute Vehiculo objBuscar, Model modelo) {
 
-        ArrayList<Vehiculo> resultado = miServicio.getListaModelo(objBuscar.getModelo());
+    //     ArrayList<Vehiculo> resultado = miServicio.getListaModelo(objBuscar.getModelo());
 
-        if (resultado == null) {
-            return "resultado-view";
-        } else {
-            modelo.addAttribute("mensaje", "ok");
-            modelo.addAttribute("tablaModelos", resultado);
-        }
-        modelo.addAttribute("objBuscar", new Vehiculo());
-        return "busqueda-form";
-    }
+    //     if (resultado == null) {
+    //         return "resultado-view";
+    //     } else {
+    //         modelo.addAttribute("mensaje", "ok");
+    //         modelo.addAttribute("tablaModelos", resultado);
+    //     }
+    //     modelo.addAttribute("objBuscar", new Vehiculo());
+    //     return "busqueda-form";
+    // }
 
 }

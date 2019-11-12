@@ -9,18 +9,19 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/mi.css">
 </head>
-
 <body>
     <div class="container">
-
         <h1>Ingrese datos correspondientes al nuevo vehiculo</h1>
-        <form style="padding-bottom: 20px;"th:action="@{/agregar-form}" th:object="${nuevoVehiculo}" method="POST">
-            <input class="field" type="text" th:field="*{marca}" placeholder="Marca">
-            <input class="field" type="text" th:field="*{modelo}" placeholder="Modelo">
-            <input class="field" type="text" th:field="*{precio}" placeholder="Precio">
+        <form th:action="@{/agregar-form}" th:object="${nuevoVehiculo}" method="POST">
+            <input class="field" type="text" th:field="*{marca}" placeholder="Marca" required>
+            <input class="field" type="text" th:field="*{modelo}" placeholder="Modelo" required>
+            <input class="field" type="text" th:field="*{precio}" placeholder="Precio" required>
             <input type="submit" class="btn" value="Agregar">
-            <a href="/lista-view"><button class="btn">Ver lista de vehiculos</button></a>
+           
         </form>
+        <div style="padding-bottom: 20px;">
+            <p><a href="/lista-view"><button class="btn">Ver lista de vehiculos</button></a></p>
+        </div>
     </div>
 </body>
 

@@ -8,9 +8,6 @@ public class Vehiculo {
 
     public Vehiculo(){}
 
-    public Vehiculo(String enModelo){
-        this.modelo = enModelo;
-    }
     public Vehiculo(String enMarca, String enModelo, int enPrecio){
         this.marca = enMarca;
         this.modelo = enModelo;
