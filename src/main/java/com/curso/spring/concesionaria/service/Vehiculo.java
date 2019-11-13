@@ -7,11 +7,11 @@ public class Vehiculo {
 
     private String marca;
     private String modelo;
-    private int precio;
+    private Double precio;
 
     public Vehiculo(){}
 
-    public Vehiculo(String enMarca, String enModelo, int enPrecio){
+    public Vehiculo(String enMarca, String enModelo, Double enPrecio){
         this.marca = enMarca;
         this.modelo = enModelo;
         this.precio = enPrecio;
@@ -29,10 +29,10 @@ public class Vehiculo {
     public String getModelo(){
         return this.modelo;
     }
-    public void setPrecio(int enPrecio){
+    public void setPrecio(Double enPrecio){
         this.precio = enPrecio;
     }
-    public int getPrecio(){
+    public Double getPrecio(){
         return this.precio;
     }
 

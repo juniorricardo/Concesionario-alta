@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.curso.spring.concesionaria.service.*;
+import com.curso.spring.concesionaria.service.sql.ConectorDB;
 
 /**
  * @author juniorricardo
@@ -26,10 +27,12 @@ public class HomeController {
      * @return
      */
     @GetMapping({ "/", "/lista-view"})
-    public String procesar(@RequestParam(value = "txtBuscarModelo", required = false, defaultValue = "") String modelo, 
-                                                                                                            Model model) {
-        model.addAttribute("listaVehiculos", miServicio.getListaVehiculos(modelo));
-        //model.addAttribute("objBuscar", new Vehiculo());
+    public String procesar(@RequestParam(value = "txtBuscarModelo", 
+    									 required = false, 
+    									 defaultValue = "") String modelo, 
+    									 Model model) {
+//        model.addAttribute("listaVehiculos", miServicio.getListaVehiculos(modelo));
+    	model.addAttribute("listaVehiculos", miServicio.getNuevoAutos());
         return "lista-view";
     }
 
