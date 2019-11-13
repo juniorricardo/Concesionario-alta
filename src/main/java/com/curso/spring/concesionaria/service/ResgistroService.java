@@ -21,16 +21,33 @@ public class ResgistroService {
 		// query.forEach(item->System.out.println(item.getMarca()));
 		return query;
 	}
-	
-	
-	
+
+	public Object getListVehiculos(String modelo) {
+		List<Vehiculo> query;
+		if (modelo.equals(null) || modelo.equals("")) {
+			String sql = "select * from Autos";
+			query = jdbcTemplate.query(sql, new AutoRowMapper());
+		} else {
+			String patron = "Select * from Autos Where modelo = '%s'";
+			String filtroSql = String.format(patron, modelo);
+			query = jdbcTemplate.query(filtroSql, new AutoRowMapper());
+		}
+//		
+//		
+//		String patron = "Select * from Autos Where modelo = %s";
+//		String filtroSql = String.format(patron, modelo);
+//		
+//		List<Vehiculo> query = jdbcTemplate.query(filtroSql, new AutoRowMapper());
+		return query;
+
+	}
 
 	/**
 	 * 
 	 * @param enModelo Es el modelo que se desea filtrar
 	 * @return 'regLista' Es la lista luego de realizar el filtro, del modelo solo
 	 *         si 'enModelo' no es nulo o vacia.
-	 */
+	 *
 	public ArrayList<Vehiculo> getListaVehiculos(String enModelo) {
 
 		ArrayList<Vehiculo> regLista = new ArrayList<>();
@@ -47,7 +64,7 @@ public class ResgistroService {
 			}
 		}
 		return regLista;
-	}
+	} 																							*/
 
 	/**
 	 * Cargar a la "base de datos" un nuevo vehiculo
@@ -55,7 +72,14 @@ public class ResgistroService {
 	 * @param nuevo Es el objeto vehiculo que se envia desde el controlador
 	 */
 	public void setVehiculo(Vehiculo nuevo) {
-		RegistroVehiculos.setVehiculo(nuevo);
+		String insertPatron = "INSERT INTO Autos(Marca, Modelo, Precio) VALUES('%s', '%s', " + nuevo.getPrecio() + ")";
+		String sqlComplete = String.format(insertPatron, nuevo.getMarca(), nuevo.getModelo());
+		jdbcTemplate.execute(sqlComplete);
+
+//		String values = "('nuevo.getMarca()','nuevo.getModelo()',nuevo.getPrecio() + );
+//    	String sql = "INSERT INTO Autos(marca, modelo, precio) VALUES " + values;
+//    	jdbcTemplate.execute(sql);
+		// RegistroVehiculos.setVehiculo(nuevo);
 	}
 
 }

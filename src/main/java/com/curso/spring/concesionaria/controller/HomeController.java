@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.curso.spring.concesionaria.service.*;
-import com.curso.spring.concesionaria.service.sql.ConectorDB;
 
 /**
  * @author juniorricardo
@@ -17,45 +16,46 @@ import com.curso.spring.concesionaria.service.sql.ConectorDB;
 @Controller
 public class HomeController {
 
-    @Autowired
-    ResgistroService miServicio;
+	@Autowired
+	ResgistroService miServicio;
 
-    /**
-     * 
-     * @param modelo
-     * @param model
-     * @return
-     */
-    @GetMapping({ "/", "/lista-view"})
-    public String procesar(@RequestParam(value = "txtBuscarModelo", 
-    									 required = false, 
-    									 defaultValue = "") String modelo, 
-    									 Model model) {
-//        model.addAttribute("listaVehiculos", miServicio.getListaVehiculos(modelo));
-    	model.addAttribute("listaVehiculos", miServicio.getNuevoAutos());
-        return "lista-view";
-    }
+	/**
+	 * 
+	 * @param modelo
+	 * @param model
+	 * @return
+	 */
+	@GetMapping({ "/", "/lista-view" })
+	public String procesar(@RequestParam(value = "txtBuscarModelo", 
+										 required = false, 
+										 defaultValue = "") String modelo,
+						   Model model) {
+		model.addAttribute("listaVehiculos", miServicio.getListVehiculos(modelo));
+		return "lista-view";
+	}
 
-    /**
-     * 
-     * @param modelo
-     * @return
-     */
-    @GetMapping("/agregar-form")
-    public String mostrarFormulario(Model modelo) {
-        modelo.addAttribute("nuevoVehiculo", new Vehiculo());
-        return "agregar-form";
-    }
+	/**
+	 * 
+	 * @param modelo
+	 * @return Vista html agregar-form -> en ella podremos agregar un nuevo vehiculo
+	 *         a la tabla
+	 */
+	@GetMapping("/agregar-form")
+	public String mostrarFormulario(Model modelo) {
+		modelo.addAttribute("nuevoVehiculo", new Vehiculo());
+		return "agregar-form";
+	}
 
-    /**
-     * 
-     * @param nuevo
-     * @return
-     */
-    @PostMapping("/agregar-form")
-    public String agregarVehiculo(@ModelAttribute Vehiculo nuevo) {
-        miServicio.setVehiculo(nuevo);
-        return "redirect:/agregar-form";
-    }
+	/**
+	 * 
+	 * @param nuevo
+	 * @return recarga la pagina devolviendo el string, que hace referencia a la
+	 *         vista agregar-form.html
+	 */
+	@PostMapping("/agregar-form")
+	public String agregarVehiculo(@ModelAttribute Vehiculo nuevo) {
+		miServicio.setVehiculo(nuevo);
+		return "redirect:/agregar-form";
+	}
 
 }

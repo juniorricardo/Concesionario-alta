@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Raleway|Roboto&display=swap');
+
+/* @font-face{
+  font-family: "gothic";
+  font-style: normal;
+  font-weight: normal;
+  src: url(gothic.otf);
+} */
 
 body {
     background-color: #2f2b32;
@@ -25,7 +33,7 @@ body {
   }
   
   table {
-    color: #2f2b32;
+    color: #777;
     font-style: normal;
     margin-left: auto;
     margin-right: auto;
