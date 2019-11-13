@@ -1,5 +1,8 @@
 package com.curso.spring.concesionaria.service;
 
+/**
+ * Esta clase es utilizada para capturar los datos del vehiculo y poder ser manipulada
+ */
 public class Vehiculo {
 
     private String marca;

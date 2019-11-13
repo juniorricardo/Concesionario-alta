@@ -9,6 +9,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class ResgistroService {
 
+    /**
+     * 
+     * @param enModelo Es el modelo que se desea filtrar
+     * @return 'regLista' Es la lista luego de realizar el filtro, del modelo solo si
+     *                    'enModelo' no es nulo o vacia.
+     */
 	public ArrayList<Vehiculo> getListaVehiculos(String enModelo){
 
         ArrayList<Vehiculo> regLista = new ArrayList<>();
@@ -28,6 +34,10 @@ public class ResgistroService {
         return regLista;
     }
 
+    /**
+     * Cargar a la "base de datos" un nuevo vehiculo
+     * @param nuevo Es el objeto vehiculo que se envia desde el controlador
+     */
     public void setVehiculo(Vehiculo nuevo){
         RegistroVehiculos.setVehiculo(nuevo);
     }
