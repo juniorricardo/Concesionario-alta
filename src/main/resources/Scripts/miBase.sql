@@ -10,10 +10,10 @@ CREATE TABLE Autos
 
 -- Insertar registros en la tabla 'Autos'
 INSERT INTO Autos
-    -- columns to insert data into
+    -- columnas a insertar datos
     ( Marca, Modelo, Precio )
 VALUES
-    -- first row: values for the columns in the list above
+    -- primera fila: valores de las columna mencionada anteriormente
     ( 'Ford', 'Camaro', 73000.0 ),
     ( 'Lamborghini', 'Reventon', 1700000.0 ),
     ( 'Mercedez-Benz', 'AMG GTR', 187000.0 ),
@@ -22,4 +22,4 @@ VALUES
     ( 'Lamborghini', 'Huracán Performante', 330000.0 ),
     ( 'Karma', 'Revero', 130000.0 ),
     ( 'Ford', 'GT', 500000.0 );
-    -- add more rows here
+    -- agregar mas registros si se desea
