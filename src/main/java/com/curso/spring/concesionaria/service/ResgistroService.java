@@ -15,10 +15,9 @@ public class ResgistroService {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 
-	public List<Vehiculo> getNuevoAutos() {
-		String sql = "select * from Autos";
+	public List<Vehiculo> getListVehiculos() {
+		String sql = "SELECT * FROM Autos";
 		List<Vehiculo> query = jdbcTemplate.query(sql, new AutoRowMapper());
-		// query.forEach(item->System.out.println(item.getMarca()));
 		return query;
 	}
 
@@ -32,12 +31,12 @@ public class ResgistroService {
 			String filtroSql = String.format(patron, modelo);
 			query = jdbcTemplate.query(filtroSql, new AutoRowMapper());
 		}
-//		
-//		
-//		String patron = "Select * from Autos Where modelo = %s";
-//		String filtroSql = String.format(patron, modelo);
-//		
-//		List<Vehiculo> query = jdbcTemplate.query(filtroSql, new AutoRowMapper());
+		//
+		//
+		// String patron = "Select * from Autos Where modelo = %s";
+		// String filtroSql = String.format(patron, modelo);
+		//
+		// List<Vehiculo> query = jdbcTemplate.query(filtroSql, new AutoRowMapper());
 		return query;
 
 	}
@@ -48,23 +47,17 @@ public class ResgistroService {
 	 * @return 'regLista' Es la lista luego de realizar el filtro, del modelo solo
 	 *         si 'enModelo' no es nulo o vacia.
 	 *
-	public ArrayList<Vehiculo> getListaVehiculos(String enModelo) {
-
-		ArrayList<Vehiculo> regLista = new ArrayList<>();
-		HashMap<Integer, Vehiculo> regService = RegistroVehiculos.getTabla();
-		Set<Integer> keys = regService.keySet();
-
-		if (enModelo.equals(null) || enModelo.equals("")) {
-			for (Integer key : keys)
-				regLista.add(regService.get(key));
-		} else {
-			for (Integer key : keys) {
-				if (regService.get(key).getModelo().equals(enModelo))
-					regLista.add(regService.get(key));
-			}
-		}
-		return regLista;
-	} 																							*/
+	 *         public ArrayList<Vehiculo> getListaVehiculos(String enModelo) {
+	 * 
+	 *         ArrayList<Vehiculo> regLista = new ArrayList<>(); HashMap<Integer,
+	 *         Vehiculo> regService = RegistroVehiculos.getTabla(); Set<Integer>
+	 *         keys = regService.keySet();
+	 * 
+	 *         if (enModelo.equals(null) || enModelo.equals("")) { for (Integer key
+	 *         : keys) regLista.add(regService.get(key)); } else { for (Integer key
+	 *         : keys) { if (regService.get(key).getModelo().equals(enModelo))
+	 *         regLista.add(regService.get(key)); } } return regLista; }
+	 */
 
 	/**
 	 * Cargar a la "base de datos" un nuevo vehiculo
@@ -76,9 +69,10 @@ public class ResgistroService {
 		String sqlComplete = String.format(insertPatron, nuevo.getMarca(), nuevo.getModelo());
 		jdbcTemplate.execute(sqlComplete);
 
-//		String values = "('nuevo.getMarca()','nuevo.getModelo()',nuevo.getPrecio() + );
-//    	String sql = "INSERT INTO Autos(marca, modelo, precio) VALUES " + values;
-//    	jdbcTemplate.execute(sql);
+		// String values = "('nuevo.getMarca()','nuevo.getModelo()',nuevo.getPrecio() +
+		// );
+		// String sql = "INSERT INTO Autos(marca, modelo, precio) VALUES " + values;
+		// jdbcTemplate.execute(sql);
 		// RegistroVehiculos.setVehiculo(nuevo);
 	}
 
