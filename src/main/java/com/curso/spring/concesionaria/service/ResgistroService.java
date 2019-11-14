@@ -26,14 +26,14 @@ public class ResgistroService {
 
 	}
 
-	/**
+	/** 
 	 * Cargar a la "base de datos" un nuevo vehiculo
 	 * 
 	 * @param nuevo Es el objeto vehiculo que se envia desde el controlador
 	 */
 	public void setVehiculo(Vehiculo nuevo) {
-		String insertPatron = "INSERT INTO Autos(Marca, Modelo, Precio) VALUES('%s', '%s', " + nuevo.getPrecio() + ")";
-		String sqlComplete = String.format(insertPatron, nuevo.getMarca(), nuevo.getModelo());
+		String insertPatron = "INSERT INTO Autos(Marca, Modelo, Precio) VALUES('%s', '%s', %.0f)";
+		String sqlComplete = String.format(insertPatron, nuevo.getMarca(), nuevo.getModelo(), nuevo.getPrecio());
 		jdbcTemplate.execute(sqlComplete);
 	}
 

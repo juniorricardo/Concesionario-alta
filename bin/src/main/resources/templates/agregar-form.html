@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registro de nuevos modelos!</title>
+    <link rel="stylesheet" href="./css/mi.css" type="text/css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Ingrese datos correspondientes al nuevo vehiculo</h1>
+        <form th:action="@{/agregar-form}" th:object="${nuevoVehiculo}" method="POST">
+            <input class="field" type="text" th:field="*{marca}" placeholder="Marca" required>
+            <input class="field" type="text" th:field="*{modelo}" placeholder="Modelo" required>
+            <input class="field" type="text" th:field="*{precio}" placeholder="Precio" required>
+            <input type="submit" class="btn" value="Agregar">
+        </form>
+        <div style="padding-bottom: 20px;">
+            <p><a href="/lista-view"><button class="btn">Ver lista de vehiculos</button></a></p>
+        </div>
+    </div>
+</body>
+
+</html>

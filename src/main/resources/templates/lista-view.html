@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lista de vehiculos!</title>
-     <link rel="stylesheet" href="./css/mi.css" type="text/css" />
-     <link rel="stylesheet" href="/src/main/webapp/css/mi.css">
+     <link rel="stylesheet" th:href="@{/css/mi.css}"/>
 </head>
 
 <body>
 
     <div class="container">
         <h1>Lista de vehiculos disponibles</h1>
+
+        
         <div>
             <form th:action="@{/lista-view}" method="get" style="padding-bottom: 20px;">
                 <input class=" field" type="text" name="txtBuscarModelo" placeholder="Ingrese el modelo">

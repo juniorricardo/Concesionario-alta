@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Raleway|Roboto&display=swap');
+
+/* @font-face{
+  font-family: "gothic";
+  font-style: normal;
+  font-weight: normal;
+  src: url(gothic.otf);
+} */
+
+body {
+    background-color: #2f2b32;
+    font-family: "Raleway", sans-serif;
+    padding: 50px;
+    text-align: center;
+  }
+  
+  .container {
+    margin: 20px auto;
+    padding: 15px;
+    width: 550px;
+    height: auto;
+    background-color: #f4f4f2;
+    border-radius: 5px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  
+  h1 {
+    width: 70%;
+    color: #777;
+    font-size: 32px;
+    margin: 28px auto;
+    margin-bottom: 20px;
+  }
+  
+  table {
+    color: #777;
+    font-style: normal;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  thead {
+    font-size: x-large;
+    color: #292c33;
+  }
+  
+  tbody {
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  th,
+  td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  input,
+  button {
+    font-family: "Raleway", sans-serif;
+    padding: 12px 0;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    border: 2px solid transparent;
+    text-align: center;
+    width: 60%;
+    font-size: 18px;
+    transition: border 0.2s, background-color 0.2s;
+  }
+  
+  /*
+  *   https://fontawesome.com/
+  *
+      Agregar propiedades para agrega iconos
+  *
+  */
+  
+  
+  /*
+  *
+      Agregar flexbox
+  *
+  */
+  
+  
+  
+  div .btn {
+    background-color: #ff8c00;
+    color: #fff;
+    line-height: 25px;
+    cursor: pointer;
+  }
+  
+  div .btn:hover,
+  div .btn:active {
+    background-color: #aa5d00;
+    border: 2px solid #aa5d00;
+  }
+  
+  div .field {
+    background-color: #dfe0e1;
+  }
+  
+  div .field:focus {
+    border: 2px solid #ff8c00;
+  }
+  
