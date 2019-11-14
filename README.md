@@ -10,7 +10,7 @@ Este proyecto utilizar 2 nuevas dependencias
 
 **Spring JDBC** abstraccion de JDBC por parte de Spring
 
-## ![jdbc](D:\Mitsuha\Repositorio\CDA\Concesionario-alta\img\jdbc.JPG)
+## ![jdbc](img/jdbc.JPG)
 
 ## Bases
 
