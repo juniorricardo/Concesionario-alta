@@ -16,11 +16,12 @@ body {
   
   .container {
     margin: 20px auto;
-    padding: 15px;
-    width: 550px;
-    height: auto;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    width: 40%;
+    height: 50%;
     background-color: #f4f4f2;
-    border-radius: 5px;
+    border-radius: 15px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   }
   
@@ -34,7 +35,6 @@ body {
   
   table {
     color: #777;
-    font-style: normal;
     margin-left: auto;
     margin-right: auto;
   }
@@ -63,8 +63,11 @@ body {
     border: 2px solid transparent;
     text-align: center;
     width: 60%;
-    font-size: 18px;
+    font-size: 25px;
+    border-radius: 12px;
     transition: border 0.2s, background-color 0.2s;
+    border: none;
+    /*float: left;*/
   }
   
   /*
@@ -81,6 +84,9 @@ body {
   *
   */
   
+  div{
+    text-align: center;
+  }
   
   
   div .btn {
@@ -103,4 +109,3 @@ body {
   div .field:focus {
     border: 2px solid #ff8c00;
   }
-  
