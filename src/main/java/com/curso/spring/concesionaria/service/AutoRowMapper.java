@@ -3,6 +3,7 @@ package com.curso.spring.concesionaria.service;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.curso.spring.concesionaria.dominio.Vehiculo;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
 

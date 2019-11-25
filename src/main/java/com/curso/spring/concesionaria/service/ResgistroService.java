@@ -2,6 +2,7 @@ package com.curso.spring.concesionaria.service;
 
 import java.util.List;
 
+import com.curso.spring.concesionaria.dominio.Vehiculo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
