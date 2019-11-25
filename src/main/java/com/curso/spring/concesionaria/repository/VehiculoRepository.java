@@ -9,6 +9,9 @@ import java.util.List;
 @Repository
 public interface VehiculoRepository extends JpaRepository<Vehiculo, Long> {
 
+
+    Vehiculo findByModeloLike(String modelo);
+
     //List<Vehiculo> findAllByLike(String name);
 
     //List<Vehiculo> findAllByNameLikeOrSurnameLike(String name, String surname);

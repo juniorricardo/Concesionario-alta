@@ -1,13 +1,11 @@
 package com.curso.spring.concesionaria.controller;
 
 import com.curso.spring.concesionaria.dominio.Vehiculo;
+import com.curso.spring.concesionaria.repository.VehiculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import com.curso.spring.concesionaria.service.*;
 
@@ -20,18 +18,19 @@ public class HomeController {
 	@Autowired
 	ResgistroService miServicio;
 
-	/**
-	 * 
-	 * @param modelo
-	 * @param model
-	 * @return
-	 */
+	@Autowired
+	VehiculoRepository miVRepository;
+
 	@GetMapping({ "/", "/lista-view" })
-	public String procesar(@RequestParam(value = "txtBuscarModelo", 
-										 required = false, 
-										 defaultValue = "") String modelo,
-						   Model model) {
-		model.addAttribute("listaVehiculos", miServicio.getListVehiculos(modelo));
+	public String procesar(Model model) {
+		//model.addAttribute("listaVehiculos", miServicio.getListVehiculos(modelo));
+		model.addAttribute("listaVehiculos", miVRepository.findAll());
+		return "lista-view";
+	}
+
+	@GetMapping("/lista-view/{modelo}")
+	public String procesar(@PathVariable String modelo,Model model) {
+		model.addAttribute("listaVehiculos", miVRepository.findByModeloLike(modelo));
 		return "lista-view";
 	}
 
