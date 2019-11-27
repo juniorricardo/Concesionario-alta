@@ -2,7 +2,7 @@
 -- Crear la tabla en la base de datos indicada
 CREATE TABLE Autos
 (
-    AutosId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    Id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     Marca VARCHAR(15) NOT NULL,
     Modelo VARCHAR(25) NOT NULL,
     Precio DOUBLE NOT NULL

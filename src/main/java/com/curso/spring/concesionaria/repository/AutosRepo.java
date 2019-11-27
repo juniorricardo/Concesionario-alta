@@ -1,19 +1,19 @@
 package com.curso.spring.concesionaria.repository;
 
-import com.curso.spring.concesionaria.dominio.Vehiculo;
+import com.curso.spring.concesionaria.dominio.Autos;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface VehiculoRepository extends JpaRepository<Vehiculo, Long> {
+public interface AutosRepo extends JpaRepository<Autos,Long> {
 
 
-    Vehiculo findByModeloLike(String modelo);
+    List<Autos> findAllByModeloLikeOrMarcaLike(String modelo, String marca);
 
-    //List<Vehiculo> findAllByLike(String name);
-
+//    List<Vehiculo> findAll();
+//
     //List<Vehiculo> findAllByNameLikeOrSurnameLike(String name, String surname);
 
 }

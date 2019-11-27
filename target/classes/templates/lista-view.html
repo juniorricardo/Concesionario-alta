@@ -2,46 +2,53 @@
 <html xmlns="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lista de vehiculos!</title>
-     <link rel="stylesheet" th:href="@{/css/mi.css}"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Lista de vehiculos!</title>
+<link rel="stylesheet" th:href="@{/css/mi.css}" />
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>Lista de vehiculos disponibles</h1>
+	<div class="container">
+		<h1>Lista de vehiculos disponibles</h1>
 
-        
-        <div>
-            <form th:action="@{/lista-view}" method="get" style="padding-bottom: 20px;">
-                <input class=" field" type="text" name="txtBuscarModelo" placeholder="Ingrese el modelo">
-                <input class="btn submit" type="submit" value="Buscar">
-            </form>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Marca</th>
-                        <th>Modelo</th>
-                        <th>Precio</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="registro : ${listaVehiculos}">
-                        <th th:text="${registro.marca}"></th>
-                        <th th:text="${registro.modelo}"></th>
-                        <th th:text="${registro.precio}"></th>
-                    </tr>
-                </tbody>
-            </table>
-            <div style="padding-top: 20px; padding-bottom: 20px;">
-                <a href="/agregar-form"><button class="btn">Registrar nuevo</button></a>
-            </div>
+		<div>
+			<form th:action="@{/lista-view}" method="get"
+				style="padding-bottom: 20px;">
+				<input class=" field" type="text" name="buscarMarca"
+					   placeholder="Ingrese la marca">
+				<input class=" field" type="text" name="buscarModelo"
+					placeholder="Ingrese el modelo">
+				   <input class="btn submit"
+					type="submit" value="Buscar">
+			</form>
 
-        </div>
+			<table>
+				<thead>
+					<tr>
+						<th>Marca</th>
+						<th>Modelo</th>
+						<th>Precio</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="registro : ${listaAutos}">
+						<th th:text="${registro.marca}"></th>
+						<th th:text="${registro.modelo}"></th>
+						<th th:text="${registro.precio}"></th>
+					</tr>
+				</tbody>
+			</table>
+			<div style="padding-top: 20px; padding-bottom: 20px;">
+				<a href="/agregar-form"><button class="btn">Registrar
+						nuevo</button></a>
+			</div>
+
+		</div>
+	</div>
 
 </body>
 

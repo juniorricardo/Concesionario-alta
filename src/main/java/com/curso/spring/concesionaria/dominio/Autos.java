@@ -8,44 +8,37 @@ import javax.validation.constraints.NotNull;
  * Esta clase es utilizada para capturar los datos del vehiculo y poder ser manipulada
  */
 @Entity
-public class Vehiculo {
+public class Autos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
     private Long id;
 
-    @Column(name = "Marca")
+    @Column(name = "marca")
     private String marca;
 
-    @Column(name = "Modelo")
+    @Column(name = "modelo")
     private String modelo;
 
-    @Column(name = "Precio")
+    @Column(name = "precio")
     private Double precio;
 
-    public Vehiculo(){}
-
-    public Vehiculo(String enMarca, String enModelo, Double enPrecio){
-        this.marca = enMarca;
-        this.modelo = enModelo;
-        this.precio = enPrecio;
-    }
-    public void setMarca(String enMarca){
-        this.marca = enMarca;
+    public void setMarca(String marca){
+        this.marca = marca;
     }
     public String getMarca(){
         return this.marca;
     }
 
-    public void setModelo(String enModelo){
-        this.modelo = enModelo;
+    public void setModelo(String modelo){
+        this.modelo = modelo;
     }
     public String getModelo(){
         return this.modelo;
     }
-    public void setPrecio(Double enPrecio){
-        this.precio = enPrecio;
+    public void setPrecio(Double precio){
+        this.precio = precio;
     }
     public Double getPrecio(){
         return this.precio;
@@ -53,7 +46,7 @@ public class Vehiculo {
 
     @Override
     public String toString(){
-        return "Vehiculo: \n" +
+        return "Auto: \n" +
                 "   id: " + this.id +
                 "\n   Marca: " + this.marca +
                 "\n   Modelo: " + this.modelo+

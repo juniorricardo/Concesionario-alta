@@ -13,6 +13,7 @@
 	<artifactId>concesionaria</artifactId>
 	<version>0.0.20-SNAPSHOT</version>
 	<name>demo</name>
+	<packaging>war</packaging>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

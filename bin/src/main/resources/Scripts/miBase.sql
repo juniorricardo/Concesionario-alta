@@ -1,11 +1,14 @@
 -- Crear una nueva tabla llamada 'Autos' en la base de datos 'jdbc:h2:~/test'
 -- Crear la tabla en la base de datos indicada
+   
 CREATE TABLE Autos
 (
+    ID INT NOT NULL auto_increment,
     Marca VARCHAR(15) NOT NULL,
     Modelo VARCHAR(25) NOT NULL,
-    Precio DOUBLE NOT NULL
-    -- Agregar mas columnas si se desea
+    Precio DOUBLE NOT NULL,
+    PRIMARY KEY (ID)
+ -- Agregar mas columnas si se desea
 );
 
 -- Insertar registros en la tabla 'Autos'
