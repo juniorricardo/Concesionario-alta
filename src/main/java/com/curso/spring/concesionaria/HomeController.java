@@ -1,12 +1,11 @@
 package com.curso.spring.concesionaria;
 
-import com.curso.spring.concesionaria.dominio.Autos;
-import com.curso.spring.concesionaria.repository.AutosRepo;
+import com.curso.spring.concesionaria.dominio.Auto;
+import com.curso.spring.concesionaria.repository.IAutoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 
 /**
  * @author juniorricardo
@@ -18,35 +17,30 @@ public class HomeController {
 //	ResgistroService miServicio;
 
 	@Autowired
-	AutosRepo repo;
+	IAutoRepo repo;
 
-	@GetMapping("/")
+	@GetMapping({ "/", "lista-view"})
 	public String listar(Model model) {
 		model.addAttribute("listaAutos", repo.findAll());
 		return "lista-view";
 	}
 
 	@GetMapping("/buscarModelo")
-	public String procesar(@RequestParam(value = "buscarModelo", required = false, defaultValue = "") String modelo,
-						   Model model) {
-		if(repo.findByModelo(modelo) == null){
-			model.addAttribute("listaAutos", repo.findAll());
-			model.addAttribute("estado", "No se encontro el modelo.");
-		}else{
-			model.addAttribute("listaAutos", repo.findByModelo(modelo));
-		}
+	public String procesar(@RequestParam(value = "buscarModelo", required = false, defaultValue = "") String buscar,
+			Model model) {
+		model.addAttribute("listaAutos", repo.findAllByMarcaLikeOrModeloLike("%" + buscar + "%", "%" + buscar + "%"));
 		return "lista-view";
 	}
 
 	/**
 	 * 
-	 * @param modelo
+	 * @param modelo>
 	 * @return Vista html agregar-form -> en ella podremos agregar un nuevo vehiculo
 	 *         a la tabla
 	 */
 	@GetMapping("/agregar-form")
 	public String mostrarFormulario(Model modelo) {
-		modelo.addAttribute("nuevoVehiculo", new Autos());
+		modelo.addAttribute("nuevoVehiculo", new Auto());
 		return "agregar-form";
 	}
 
@@ -57,8 +51,8 @@ public class HomeController {
 	 *         vista agregar-form.html
 	 */
 	@PostMapping("/agregar-form")
-	public String agregarVehiculo(@ModelAttribute Autos nuevoVehiculo) {
-		repo.save(nuevoVehiculo);
+	public String agregarVehiculo(@RequestBody Auto nuevoAuto) {
+		repo.save(nuevoAuto);
 		return "redirect:/agregar-form";
 	}
 

@@ -1,22 +1,24 @@
 package com.curso.spring.concesionaria.dominio;
 
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 /**
  * Esta clase es utilizada para capturar los datos del vehiculo y poder ser manipulada
  */
 @Entity
-public class Autos {
+public class Auto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
     private Long id;
-
-
-
+    
     @Column(name = "marca")
     private String marca;
 
