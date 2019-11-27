@@ -22,16 +22,19 @@ public class HomeController {
 
 	@GetMapping("/")
 	public String listar(Model model) {
-		//model.addAttribute("listaVehiculos", miServicio.getListVehiculos(modelo));
 		model.addAttribute("listaAutos", repo.findAll());
 		return "lista-view";
 	}
 
-	@GetMapping("/lista-view/{marca}/{modelo}")
-	public String procesar(@PathVariable String marca,
-						   @PathVariable String modelo,
+	@GetMapping("/buscarModelo")
+	public String procesar(@RequestParam(value = "buscarModelo", required = false, defaultValue = "") String modelo,
 						   Model model) {
-		model.addAttribute("listaAutos", repo.findAllByModeloLikeOrMarcaLike(marca,modelo));
+		if(repo.findByModelo(modelo) == null){
+			model.addAttribute("listaAutos", repo.findAll());
+			model.addAttribute("estado", "No se encontro el modelo.");
+		}else{
+			model.addAttribute("listaAutos", repo.findByModelo(modelo));
+		}
 		return "lista-view";
 	}
 
@@ -49,14 +52,14 @@ public class HomeController {
 
 	/**
 	 * 
-	 * @param nuevo
+	 * @param nuevoVehiculo
 	 * @return recarga la pagina devolviendo el string, que hace referencia a la
 	 *         vista agregar-form.html
 	 */
-//	@PostMapping("/agregar-form")
-//	public String agregarVehiculo(@ModelAttribute Auto nuevo, String nuevo) {
-//		miServicio.setVehiculo(nuevo);
-//		return "redirect:/agregar-form";
-//	}
+	@PostMapping("/agregar-form")
+	public String agregarVehiculo(@ModelAttribute Autos nuevoVehiculo) {
+		repo.save(nuevoVehiculo);
+		return "redirect:/agregar-form";
+	}
 
 }

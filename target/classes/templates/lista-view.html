@@ -7,6 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Lista de vehiculos!</title>
 <link rel="stylesheet" th:href="@{/css/mi.css}" />
+<link rel="stylesheet" th:href="@{/js/jquery-ui.min.css}" />
 </head>
 
 <body>
@@ -16,12 +17,10 @@
 
 
 		<div>
-			<form th:action="@{/lista-view}" method="get"
+			<form th:action="@{/buscarModelo}" method="get"
 				style="padding-bottom: 20px;">
-				<input class=" field" type="text" name="buscarMarca"
-					   placeholder="Ingrese la marca">
 				<input class=" field" type="text" name="buscarModelo"
-					placeholder="Ingrese el modelo">
+					id="buscarModelo" placeholder="Ingrese el modelo">
 				   <input class="btn submit"
 					type="submit" value="Buscar">
 			</form>
@@ -49,7 +48,8 @@
 
 		</div>
 	</div>
-
+	<link rel="stylesheet" th:href="@{/js/jquery-ui.min.js}" />
+	<link rel="stylesheet" th:replace="@{js/autocomplete-modelo}" />
 </body>
 
 </html>

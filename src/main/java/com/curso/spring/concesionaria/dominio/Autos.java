@@ -15,6 +15,8 @@ public class Autos {
     @NotNull
     private Long id;
 
+
+
     @Column(name = "marca")
     private String marca;
 
@@ -24,6 +26,13 @@ public class Autos {
     @Column(name = "precio")
     private Double precio;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
     public void setMarca(String marca){
         this.marca = marca;
     }
@@ -52,5 +61,6 @@ public class Autos {
                 "\n   Modelo: " + this.modelo+
                 "\n   Precio: " + this.precio;
     }
+
 
 }

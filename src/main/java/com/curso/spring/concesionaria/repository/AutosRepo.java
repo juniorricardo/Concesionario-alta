@@ -10,7 +10,9 @@ import java.util.List;
 public interface AutosRepo extends JpaRepository<Autos,Long> {
 
 
-    List<Autos> findAllByModeloLikeOrMarcaLike(String modelo, String marca);
+//    List<Autos> findAllByModeloLikeOrMarcaLike(String modelo, String marca);
+
+    List<Autos> findByModelo(String modelo);
 
 //    List<Vehiculo> findAll();
 //
