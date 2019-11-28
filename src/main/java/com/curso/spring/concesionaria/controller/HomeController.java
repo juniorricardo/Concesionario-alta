@@ -1,7 +1,10 @@
-package com.curso.spring.concesionaria;
+package com.curso.spring.concesionaria.controller;
 
 import com.curso.spring.concesionaria.dominio.Auto;
 import com.curso.spring.concesionaria.repository.IAutoRepo;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +32,7 @@ public class HomeController {
 	public String procesar(@RequestParam(value = "buscarModelo", required = false, defaultValue = "") String buscar,
 			Model model) {
 		model.addAttribute("listaAutos", repo.findAllByMarcaLikeOrModeloLike("%" + buscar + "%", "%" + buscar + "%"));
-		return "lista-view";
+		return "redirect:lista-view";
 	}
 
 	/**
@@ -51,9 +54,10 @@ public class HomeController {
 	 *         vista agregar-form.html
 	 */
 	@PostMapping("/agregar-form")
-	public String agregarVehiculo(@RequestBody Auto nuevoAuto) {
+	public String agregarVehiculo(Auto nuevoAuto) {
 		repo.save(nuevoAuto);
-		return "redirect:/agregar-form";
+		return "redirect:lista-view";
+//		return "redirect:/agregar-form";
 	}
 
 }

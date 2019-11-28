@@ -2,12 +2,16 @@
 <html xmlns="http://www.thymeleaf.org">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <title>Lista de vehiculos!</title>
 <link rel="stylesheet" th:href="@{/css/mi.css}" />
-<link rel="stylesheet" th:href="@{/js/jquery-ui.min.css}" />
+<!-- <link rel="stylesheet" th:href="@{/js/jquery-ui.min.css}" /> -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css"
+	integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt"
+	crossorigin="anonymous">
 </head>
 
 <body>
@@ -19,15 +23,15 @@
 		<div>
 			<form th:action="@{/buscarModelo}" method="get"
 				style="padding-bottom: 20px;">
-				<input class=" field" type="text" name="buscarModelo"
-					id="buscarModelo" placeholder="Ingrese el modelo">
-				   <input class="btn submit"
-					type="submit" value="Buscar">
+				<input class="form-control field" type="text" name="buscarModelo"
+					id="buscarModelo" placeholder="Ingrese el modelo"> 
+					<input class="btn btn-primary" type="submit" value="Buscar">
 			</form>
 
-			<table>
+			<table class="table table-border">
 				<thead>
 					<tr>
+						<th>ID</th>
 						<th>Marca</th>
 						<th>Modelo</th>
 						<th>Precio</th>
@@ -35,6 +39,7 @@
 				</thead>
 				<tbody>
 					<tr th:each="registro : ${listaAutos}">
+						<th th:text="${registro.id}"></th>
 						<th th:text="${registro.marca}"></th>
 						<th th:text="${registro.modelo}"></th>
 						<th th:text="${registro.precio}"></th>
@@ -48,8 +53,8 @@
 
 		</div>
 	</div>
-	<link rel="stylesheet" th:href="@{/js/jquery-ui.min.js}" />
-	<link rel="stylesheet" th:replace="@{js/autocomplete-modelo}" />
+	<!-- 	<link rel="stylesheet" th:href="@{/js/jquery-ui.min.js}" /> -->
+	<!-- 	<link rel="stylesheet" th:replace="@{js/autocomplete-modelo}" /> -->
 </body>
 
 </html>
