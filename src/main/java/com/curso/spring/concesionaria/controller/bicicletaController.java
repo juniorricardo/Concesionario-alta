@@ -33,10 +33,10 @@ public class bicicletaController {
         return new ResponseEntity(bicicletas, HttpStatus.OK);
     }
 
-    @GetMapping("buscar/{marca}/{modelo}")
-    public ResponseEntity<Bicicleta> mostrarMarcaModelo(@PathVariable(name = "marca") String marca,
-                                                        @PathVariable(name = "modelo") String modelo) {
-        Bicicleta bicicletas = repo.find2(marca, "%" + modelo + "%");
-        return new ResponseEntity(bicicletas, HttpStatus.OK);
+    @GetMapping("buscarModelo")
+    public Bicicleta mostrarMarcaModelo(@RequestParam String marca,
+                                        @RequestParam String modelo) {
+
+        return repo.findByMarcaAndModeloLike(marca, "%" + modelo + "%");
     }
 }
