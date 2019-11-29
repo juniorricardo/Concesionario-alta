@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -17,10 +18,8 @@ import java.util.List;
  * @author juniorricardo
  */
 @Controller
+@RequestMapping("/concesionaria")
 public class HomeController {
-
-//	@Autowired
-//	ResgistroService miServicio;
 
     @Autowired
     IAutoRepo repo;
@@ -32,7 +31,7 @@ public class HomeController {
     }
 
     @GetMapping("/buscarModelo")
-    public ResponseEntity<Auto> getAllBicicleta(@RequestParam(value = "buscarModelo", required = false, defaultValue = "") String buscar,
+    public ResponseEntity<Auto> buscarFiltro(@RequestParam(value = "buscarModelo", required = false, defaultValue = "") String buscar,
                                                 Model model) {
         List<Auto> resultado = repo.findAllByMarcaLikeOrModeloLike("%" + buscar + "%", "%" + buscar + "%");
         return new ResponseEntity(resultado, HttpStatus.OK);
@@ -46,7 +45,7 @@ public class HomeController {
     @GetMapping("/agregar-form")
     public String mostrarFormulario(Model modelo) {
         modelo.addAttribute("nuevoVehiculo", new Auto());
-        return "agregar-form";
+        return "/agregar-form";
     }
 
     /**

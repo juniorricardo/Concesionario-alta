@@ -24,3 +24,21 @@ values
     ( 'Karma', 'Revero', 130000.0 ),
     ( 'Ford', 'GT', 500000.0 );
     -- agregar mas registros si se desea
+
+
+--CREATE database IF NOT exists `demo`;
+
+--use `demo`;
+
+CREATE TABLE bicicletas (
+ `id` INT NOT NULL AUTO_INCREMENT,
+ `marca` VARCHAR(45) NULL,
+ `modelo` VARCHAR(45) NULL,
+ PRIMARY KEY (`id`));
+
+
+ INSERT INTO bicicletas (`marca`, `modelo`) VALUES ('Venzo', 'MX-5');
+  INSERT INTO bicicletas (`marca`, `modelo`) VALUES ('Venzo', 'Viper');
+ INSERT INTO bicicletas (`marca`, `modelo`) VALUES ('Trek', 'Procaliber');
+ INSERT INTO bicicletas (`marca`, `modelo`) VALUES ('Giant', 'Escape 3');
+ INSERT INTO bicicletas (`marca`, `modelo`) VALUES ('Giant', 'Reign Advanced');
