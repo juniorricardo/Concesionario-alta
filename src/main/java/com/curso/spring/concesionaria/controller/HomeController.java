@@ -49,7 +49,7 @@ public class HomeController {
 
 	/**
 	 * 
-	 * @param nuevoVehiculo
+	 * @param nuevoAuto
 	 * @return recarga la pagina devolviendo el string, que hace referencia a la
 	 *         vista agregar-form.html
 	 */

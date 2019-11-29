@@ -22,7 +22,6 @@ public class Auto implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotNull
 	private Long id;
 
 	@Column(name = "marca")
