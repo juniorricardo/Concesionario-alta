@@ -30,9 +30,10 @@ public class HomeController {
         return "lista-view";
     }
 
+    //  localhost:8080/concesionaria/buscarModelo?buscarModelo=e
     @GetMapping("/buscarModelo")
     public ResponseEntity<Auto> buscarFiltro(@RequestParam(value = "buscarModelo", required = false, defaultValue = "") String buscar,
-                                                Model model) {
+                                             Model model) {
         List<Auto> resultado = repo.findAllByMarcaLikeOrModeloLike("%" + buscar + "%", "%" + buscar + "%");
         return new ResponseEntity(resultado, HttpStatus.OK);
     }

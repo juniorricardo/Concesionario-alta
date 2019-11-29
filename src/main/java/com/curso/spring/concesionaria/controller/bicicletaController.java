@@ -7,33 +7,36 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
-@Controller
-@RequestMapping("/bicicleta")
+@RestController
+@RequestMapping("/bicicletas")
 public class bicicletaController {
 
     @Autowired
     IBicicletaRepo repo;
 
-    //http://localhost:8080/bicicleta/
+    //http://localhost:8080/bicicletas
     @GetMapping("/")
     public ResponseEntity<Bicicleta> getAllBicicleta(Model modelo) {
         List<Bicicleta> bicicletas = repo.findAll();
         return new ResponseEntity(bicicletas, HttpStatus.OK);
     }
 
-   /* @GetMapping("bicicleta/{marca}")
-    public String mostrarMarca(@PathVariable(name="marca",value = "") String marca){
-        return "bicicletas";
+    //  http://localhost:8080/bicicletas/buscar?marca=Venzo
+    @GetMapping("/buscar")
+    public ResponseEntity<Bicicleta> mostrarMarca(@RequestParam String marca) {
+        List<Bicicleta> bicicletas = repo.findByMarcaLike("%" + marca + "%");
+        return new ResponseEntity(bicicletas, HttpStatus.OK);
     }
 
-    @GetMapping("bicicletas/{marca}/{modelo}")
-    public String mostrarMarcaModelo(@PathVariable(name="marca",value = "") String marca,
-                                     @PathVariable(name="modelo",value = "") String modelo){
-        return "bicicletas";
-    }*/
+    @GetMapping("buscar/{marca}/{modelo}")
+    public ResponseEntity<Bicicleta> mostrarMarcaModelo(@PathVariable(name = "marca") String marca,
+                                                        @PathVariable(name = "modelo") String modelo) {
+        Bicicleta bicicletas = repo.find2(marca, "%" + modelo + "%");
+        return new ResponseEntity(bicicletas, HttpStatus.OK);
+    }
 }
