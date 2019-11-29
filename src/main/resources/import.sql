@@ -42,3 +42,5 @@ CREATE TABLE bicicletas (
  INSERT INTO bicicletas (`marca`, `modelo`) VALUES ('Trek', 'Procaliber');
  INSERT INTO bicicletas (`marca`, `modelo`) VALUES ('Giant', 'Escape 3');
  INSERT INTO bicicletas (`marca`, `modelo`) VALUES ('Giant', 'Reign Advanced');
+ 
+ -- https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation
