@@ -8,8 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface IAutoRepo extends CrudRepository<Auto,Long> {
-
+public interface IAutoRepo extends JpaRepository<Auto,Long> {
 	
     List<Auto> findByModelo(String modelo);
 
@@ -17,4 +16,5 @@ public interface IAutoRepo extends CrudRepository<Auto,Long> {
 	
 	List<Auto> findAll();
 
+	List<Auto> findAllByMarcaLike(String marca);
 }

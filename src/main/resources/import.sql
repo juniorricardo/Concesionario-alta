@@ -1,6 +1,6 @@
 -- Crear una nueva tabla llamada 'Autos' en la base de datos 'jdbc:h2:~/test'
 -- Crear la tabla en la base de datos indicada
-CREATE TABLE Autos
+create TABLE Autos
 (
     Id Long NOT NULL AUTO_INCREMENT PRIMARY KEY,
     Marca VARCHAR(15) NOT NULL,
@@ -10,10 +10,10 @@ CREATE TABLE Autos
 );
 
 -- Insertar registros en la tabla 'Autos'
-INSERT INTO Autos
+insert into Autos
     -- columnas a insertar datos
     ( Marca, Modelo, Precio )
-VALUES
+values
     -- primera fila: valores de las columna mencionada anteriormente
     ( 'Ford', 'Camaro', 73000.0 ),
     ( 'Lamborghini', 'Reventon', 1700000.0 ),
