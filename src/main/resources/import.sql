@@ -46,3 +46,4 @@ insert into bicicletas (`marca`, `modelo`) VALUES ('Venzo', 'Viper');
 
 
  -- https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation
+ -- https://platzi.com/tutoriales/1557-git-github/2304-instalar-oh-my-zsh-en-ubuntu/
