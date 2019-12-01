@@ -67,8 +67,10 @@ public class Auto implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Auto: \n" + "   id: " + this.id + "\n   Marca: " + this.marca + "\n   Modelo: " + this.modelo
-				+ "\n   Precio: " + this.precio;
+		return "Auto: \n" + "   id: " + this.id +
+				"\n   Marca: " + this.marca +
+				"\n   Modelo: " + this.modelo +
+				"\n   Precio: " + this.precio;
 	}
 
 }

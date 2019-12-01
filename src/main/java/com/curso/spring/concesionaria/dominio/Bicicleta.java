@@ -39,4 +39,12 @@ public class Bicicleta {
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
+
+    @Override
+    public String toString(){
+        return  "Bicicleta: \n" +
+                "\tid: " + getId() +
+                "\t\tMarca: " + getMarca() +
+                "\t\tModelo: " + getModelo() ;
+    }
 }
