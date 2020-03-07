@@ -1,4 +1,4 @@
-package com.curso.spring.concesionaria.dominio;
+package com.curso.spring.concesionaria.domain;
 
 import java.io.Serializable;
 
@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 /**
  * Esta clase es utilizada para capturar los datos del vehiculo y poder ser

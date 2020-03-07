@@ -1,6 +1,6 @@
 package com.curso.spring.concesionaria.controller;
 
-import com.curso.spring.concesionaria.dominio.Auto;
+import com.curso.spring.concesionaria.domain.Auto;
 import com.curso.spring.concesionaria.repository.IAutoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

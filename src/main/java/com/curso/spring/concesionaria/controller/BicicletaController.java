@@ -1,11 +1,10 @@
 package com.curso.spring.concesionaria.controller;
 
-import com.curso.spring.concesionaria.dominio.Bicicleta;
+import com.curso.spring.concesionaria.domain.Bicicleta;
 import com.curso.spring.concesionaria.repository.IBicicletaRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/bicicletas")
-public class bicicletaController {
+public class BicicletaController {
 
     @Autowired
     IBicicletaRepo repo;
@@ -34,7 +33,7 @@ public class bicicletaController {
         return new ResponseEntity(bicicletas, HttpStatus.OK);
     }
 
-    //  http://localhost:8080/bicicletas/buscar2/Trek
+    //  http://localhost:8080/bicicletas/buscarPath/Trek
     @GetMapping("/buscarPath/{marca}")
     public ResponseEntity<Bicicleta> mostrarMarca2(@PathVariable String marca){
         List<Bicicleta> bicicletas = repo.findByMarcaLike("%" + marca + "%");

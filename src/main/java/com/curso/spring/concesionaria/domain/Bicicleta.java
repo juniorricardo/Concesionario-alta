@@ -1,4 +1,4 @@
-package com.curso.spring.concesionaria.dominio;
+package com.curso.spring.concesionaria.domain;
 
 import javax.persistence.*;
 
