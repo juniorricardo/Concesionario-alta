@@ -9,10 +9,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
 @Table(name = "empleado_permiso")
+@Getter @Setter @NoArgsConstructor
 public class Empleado_Permiso implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -30,15 +28,6 @@ public class Empleado_Permiso implements Serializable {
     @JoinColumn(name ="permisoid")
     @JsonIgnoreProperties("empleado_permisos")
     private Permiso permiso;
-
-
-    /*@ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "empleadoid")
-    private Empleado empleado;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "permisoid")
-    private Permiso permiso;*/
 
     private String comentario;
 

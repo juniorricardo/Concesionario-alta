@@ -14,9 +14,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "permiso")
-@Getter
-@Setter
-@NoArgsConstructor
+@Getter @Setter @NoArgsConstructor
 public class Permiso implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -18,8 +18,8 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/modelo")
-public class ModeloController {
+@RequestMapping("/modelo/api")
+public class ModeloApiController {
 
     @Autowired
     IEmpleadoRepository empleadoRepository;
