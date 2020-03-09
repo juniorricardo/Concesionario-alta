@@ -59,25 +59,26 @@ DELETE FROM TEST WHERE ID=2;
 -----------------------------------------------------------------
 
 create table Empleado(
- id long not null AUTO_INCREMENT,
+ id_empleado long not null AUTO_INCREMENT,
 nombre varchar(25) not null,
 apellido varchar(25),
-primary key (Id)
+primary key (id_empleado)
 );
 
 create table Permiso(
- id long not null AUTO_INCREMENT,
+ id_permiso long not null AUTO_INCREMENT,
 comentario varchar(50) not null,
-primary key (Id)
+primary key (id_permiso)
 );
 
 create table Empleado_Permiso(
- id long not null AUTO_INCREMENT,
-empleadoId int not null,
-permisoId int not null,
+ id_empleado_permiso long not null AUTO_INCREMENT,
+id_empleado int not null,
+id_permiso int not null,
 comentario varchar(10),
-primary key (Id),
-foreign key (empleadoId) references Empleado(Id)
+primary key (id_empleado_permiso),
+foreign key (id_empleado) references Empleado(id_empleado),
+foreign key (id_permiso) references Permiso(id_permiso)
 );
 
 INSERT INTO EMPLEADO ( NOMBRE , APELLIDO )
@@ -91,7 +92,7 @@ insert into permiso ( comentario )
 values ('leer'),('modificar'),('eliminar');
 
 insert into empleado_permiso
-                    ( empleadoid , permisoid , comentario )
+                    ( id_empleado , id_permiso , comentario )
 values      (1,1,'paso1'),
             (1,2,'paso2'),
             (2,1,''),

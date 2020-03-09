@@ -21,15 +21,13 @@ public class Empleado implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id_empleado")
+    private Long idEmpleado;
 
     private String nombre;
     private String apellido;
 
-    @OneToMany(mappedBy = "empleado",
-               cascade = CascadeType.ALL,
-               fetch = FetchType.EAGER,
-               orphanRemoval = true)
-    private Set<Empleado_Permiso> empleado_permisos = new HashSet<>();
+/*    @OneToMany(mappedBy = "empleado")
+    private Set<Empleado_Permiso> empleado_permisos;*/
 
 }

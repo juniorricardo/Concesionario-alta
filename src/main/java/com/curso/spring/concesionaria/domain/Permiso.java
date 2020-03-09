@@ -21,14 +21,15 @@ public class Permiso implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id_permiso")
+    private Long idPermiso;
 
     private String comentario;
 
-    @OneToMany(mappedBy = "permiso",
+    /*@OneToMany(mappedBy = "permiso",
                cascade = CascadeType.ALL,
                fetch = FetchType.EAGER,
                orphanRemoval = true)
-    private Set<Empleado_Permiso> empleado_permisos = new HashSet<>();
+    private Set<Empleado_Permiso> empleado_permisos = new HashSet<>();*/
 
 }

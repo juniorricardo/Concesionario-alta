@@ -17,16 +17,15 @@ public class Empleado_Permiso implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_empleado_permiso")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name ="empleadoid")
-    @JsonIgnoreProperties("empleado_permisos")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name ="id_empleado")
     private Empleado empleado;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name ="permisoid")
-    @JsonIgnoreProperties("empleado_permisos")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name ="id_permiso")
     private Permiso permiso;
 
     private String comentario;
